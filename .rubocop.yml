@@ -1,0 +1,87 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  EnabledByDefault: true
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'config/**/*'
+    - 'spec/factories/**/*'
+    - 'app/models/*'
+    - 'spec/**/*'
+    - 'lib/tasks/**/*'
+    - 'vendor/**/*'
+    - 'app/views/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'csv/**/*'
+    - 'slate/**/*'
+    - 'node_modules/**/*'
+
+
+Style/Encoding:
+  Enabled: false
+Style/LambdaCall:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Copyright:
+  Enabled: false
+Bundler/GemComment:
+  Enabled: false
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/RedundantInterpolation:
+  Enabled: false
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: false
+Layout/AssignmentIndentation:
+  Enabled: false
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+Layout/HashAlignment:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Layout/FirstArgumentIndentation:
+  Enabled: false
+Lint/NumberConversion:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/MissingElse:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 30
+
+RSpec/MultipleExpectations:
+  Max: 4
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Lint/ConstantResolution:
+  Enabled: false
