@@ -30,6 +30,8 @@ gem 'rubocop-rspec', require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
+gem "font-awesome-rails"
+gem 'non-stupid-digest-assets'
 gem 'devise'
 gem 'devise_token_auth'
 group :development, :test do

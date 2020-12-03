@@ -19,3 +19,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//= link_tree ../images
+//= link_directory ../javascript .js
+//= link_directory ../stylesheets .css
