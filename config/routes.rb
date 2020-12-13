@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root to:'static_pages#index',  kind: 'все'
    get 'tours/index' , kind: 'все'
   get 'tours_with_kind/:kind', to:'tours#index', as: 'tour_with_kind'
+  get 'profile', to: 'profile#index', as: 'profile'
 end

@@ -56,7 +56,7 @@
                           <li><a href="#">О НАС</a></li>
                           <li><a href="#">КОНТАКТЫ</a></li>
                           <% if user_signed_in? %>
-                          <li><a> <%= link_to('ПРОФИЛЬ',edit_user_registration_path) %> </a></li>
+                          <li><a> <%= link_to('ПРОФИЛЬ',profile_path) %> </a></li>
                           <li><a> <%= link_to('ВЫХОД',destroy_user_session_path, :method => :delete)%> </a></li>
                           <% else %>
                           <li> <a> <%= link_to('РЕГИСТРАЦИЯ',new_user_registration_path)%> </a></li>

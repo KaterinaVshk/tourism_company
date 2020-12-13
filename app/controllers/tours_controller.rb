@@ -27,7 +27,7 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
+        format.html { redirect_to @tour, notice: 'Тур успешно добавлен!' }
         format.json { render :show, status: :created, location: @tour }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class ToursController < ApplicationController
   def update
     respond_to do |format|
       if @tour.update(tour_params)
-        format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
+        format.html { redirect_to @tour, notice: 'Тур успешно обновлен!' }
         format.json { render :show, status: :ok, location: @tour }
       else
         format.html { render :edit }
@@ -55,7 +55,7 @@ class ToursController < ApplicationController
   def destroy
     @tour.destroy
     respond_to do |format|
-      format.html { redirect_to tours_url, notice: 'Tour was successfully destroyed.' }
+      format.html { redirect_to tours_url, notice: 'Tур успешно удален!.' }
       format.json { head :no_content }
     end
   end
@@ -68,7 +68,7 @@ class ToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tour_params
-      params.fetch(:tour).permit(:name, :country, :city, :kind, :food, :transport, :description, :hotel, :stars,:nights, :price, :image)
+      params.fetch(:tour).permit(:name, :country, :city, :kind, :food, :transport, :description, :hotel, :stars, :nights, :price, :image)
     end
 
     def filter_params

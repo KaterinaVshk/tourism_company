@@ -1,4 +1,85 @@
 
-<%= render partial: "layouts/notification"%>
+<div class="breadcrumb-section">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="breadcrumb-text">
+                <div class="bt-option">
+                    <a> <%= link_to('ВСЕ ТУРЫ', tour_with_kind_path('все')) %> </a>
+                    <a> > </a>
+                    <span>
+                    <% case @tour.kind when "все"%>
+                     Все туры 
+                    <% when "горнолыжный"%>
+                     Горнолыжный отдых
+                    <% when "пляжный"%>
+                    Пляжный отдых
+                    <% when "городской"%>
+                     Городские туры
+                    <% when "экскурсии"%>
+                     Экскурсии
+                    <%end%>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<section class="room-details-section spad">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="room-details-item">
+            <% if @tour.image.attached? %>
+            <%= image_tag(@tour.image) %>
+            <% else %>
+            <%= image_tag('time-to-travel-3.jpg') %>
+            <% end %>
+                <div class="rd-text">
+                    <div class="rd-title">
+                        <h3><%=@tour.name%></h3>
+                    </div>
+                    <h2><%=@tour.price%>$</h2>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="r-o">Страна:</td>
+                                <td><%=@tour.country%></td>
+                            </tr>
+                            <tr>
+                                <td class="r-o">Город:</td>
+                                <td><%=@tour.city%></td>
+                            </tr>
+
+                            <% if @tour.hotel %>
+                            <tr>
+                                <td class="r-o">Название отеля:</td>
+                                <td><%=@tour.hotel%></td>
+                            </tr>
+                             <tr>
+                                <td class="r-o">Количество звёзд в отеле:</td>
+                                <td><%=@tour.stars%></td>
+                            </tr>
+                            <%end %>
+
+                            <tr>
+                                <td class="r-o">Количество ночей:</td>
+                                <td><%= @tour.nights%></td>
+                            </tr>
+                            <tr>
+                                <td class="r-o">Питание:</td>
+                                <td><%=@tour.food%></td>
+                            </tr>
+                            <tr>
+                                <td class="r-o">Транспорт:</td>
+                                <td><%=@tour.transport%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="f-para">Описание: <%=@tour.description%></p>
+                </div>
+            </div>
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>
