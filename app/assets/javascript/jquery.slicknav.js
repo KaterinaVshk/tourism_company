@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('select').niceSelect();
+  });
 ;(function ($, document, window) {
     var
     // default settings object.

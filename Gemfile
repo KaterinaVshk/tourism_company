@@ -30,9 +30,11 @@ gem 'rubocop-rspec', require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
+gem "bootstrap_form", "~> 4.0"
 gem "font-awesome-rails"
 gem 'non-stupid-digest-assets'
 gem 'devise'
+gem 'pry'
 gem 'devise_token_auth'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

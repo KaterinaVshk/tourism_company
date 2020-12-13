@@ -1,17 +1,52 @@
-<%= form_with(model: tour, local: true) do |form| %>
-  <% if tour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+<%= render partial: "layouts/notification"%>
+<div class="row justify-content-md-center">
+<div class="col-md-10 mb-3">
+<% if tour.errors.any? %>
+<div id="error_explanation">
+<div class="alert alert-danger alert-dismissible fade show" role="notice">
+  <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
 
-      <ul>
-        <% tour.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <ul>
+  <% tour.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
   <% end %>
+  </ul>
 
-  <div class="actions">
-    <%= form.submit %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</div>
+</div>
+
+<% end %>
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+    <div class="col-lg-6 offset-lg-3" >
+    <h4></h4>
+<%= bootstrap_form_for @tour do |form| %>
+
+
+    <%= form.file_field :image, label: 'Изображение'  %>
+    <%= form.text_field :name, label: 'Название тура:'  %>
+    <%= form.text_field :country, label: 'Страна:'  %>
+    <%= form.text_field :city, label: 'Город:'  %>
+    <%= form.select :kind, %w(горнолыжный пляжный экскурсии городской), label: 'Тип тура:' %>
+    <%= form.select :stars, 1..5 , label: 'Количество звезд отеля:' %>
+    <%= form.number_field :nights , min: 0, value: 0, label: 'Количество ночей:'%>
+    <%= form.select :food, ['Всё включено',
+                         'Завтрак, обед и ужин', 'Завтрак и ужин',
+                         'Только завтрак', 'Без питания'], label: 'Питание:' %>
+    <%= form.select :transport, %w(Автобус Самолёт Поезд), label: 'Транспорт:'%>
+    <%= form.text_field :price , label: 'Цена:' %>
+    <%= form.text_area :description , label: 'Описание'%>
+  <div class="actions ">
+    <%= form.submit  class: 'btn btn-theme'%>
   </div>
 <% end %>
+</div>
+</div>
+</div>
+

@@ -13,10 +13,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Europa Hotel & Spa | Template</title>
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Css Styles -->
     <%= stylesheet_link_tag "bootstrap.min" %>
     <%= stylesheet_link_tag "elegant-icons" %>
@@ -30,7 +30,18 @@
     <%= stylesheet_link_tag "style" %>
 
   </head>
-
+  <style> 
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color:  #dfa974;
+    font-size: 25px;
+    border: none;
+    color: white;
+    padding: 2px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  </style>
   <body>
 
 
@@ -41,11 +52,10 @@
               <div class="row">
                   <div class="col-lg-12">
                       <ul class="tn-left">
-                          <li><a href="#">ГЛАВНАЯ</a></li>
+                          <li><a><%= link_to('ГЛАВНАЯ',root_path) %> </a></li>
                           <li><a href="#">О НАС</a></li>
                           <li><a href="#">КОНТАКТЫ</a></li>
                           <% if user_signed_in? %>
-                          Logged in as <strong><%= current_user.email %></strong>.
                           <li><a> <%= link_to('ПРОФИЛЬ',edit_user_registration_path) %> </a></li>
                           <li><a> <%= link_to('ВЫХОД',destroy_user_session_path, :method => :delete)%> </a></li>
                           <% else %>
@@ -72,13 +82,15 @@
                       <div class="nav-menu">
                           <nav class="mainmenu">
                               <ul>
-                                  <li class="active"><a href="./index.html">ВСЕ ТУРЫ</a></li>
-                                  <li><a href="./rooms.html">ГОРНОЛЫЖНЫЕ ТУРЫ</a></li>
-                                  <li><a href="./about-us.html">ПЛЯЖНЫЙ ОТДЫХ</a></li>
-                                  <li><a href="./pages.html">ГОРОДСКИЕ ТУРЫ</a></li>
-                                  <li><a href="./blog.html">ЭКСКУРСИИ</a></li>
+                                <li><a><%= link_to('ВСЕ ТУРЫ', tour_with_kind_path('все')) %> </a></li>
+                                <li><a><%= link_to('ГОРНОЛЫЖНЫЙ ОТДЫХ', tour_with_kind_path('горнолыжный'))%></a></li>
+                                <li><a><%= link_to('ПЛЯЖНЫЙ ОТДЫХ', tour_with_kind_path('пляжный'))%></a></li>
+                                <li><a><%= link_to('ГОРОДСКИЕ ТУРЫ', tour_with_kind_path('городской'))%></a></li>
+                                <li><a><%= link_to('ЭКСКУРСИИ', tour_with_kind_path('экскурсии'))%></a></li>
+                                <li><a><%= link_to 'Добавление тура', new_tour_path %></li></a>
                               </ul>
                           </nav>
+                          
                       </div>
                   </div>
               </div>
@@ -86,64 +98,6 @@
       </div>
       <!-- Header End -->
 
-      <!-- Hero Section Begin -->
-      <section class="hero-section">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div class="hero-text">
-                          <h1>Хватит мечтать - пора отдыхать!</h1>
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="booking-form">
-                          <h3>Booking Your Hotel</h3>
-                          <form action="#">
-                              <div class="check-date">
-                                  <label for="date-in">Check In:</label>
-                                  <input type="text" class="date-input" id="date-in">
-                                  <i class="icon_calendar"></i>
-                              </div>
-                              <div class="check-date">
-                                  <label for="date-out">Check Out:</label>
-                                  <input type="text" class="date-input" id="date-out">
-                                  <i class="icon_calendar"></i>
-                              </div>
-                              <div class="select-option">
-                                  <label for="guest">Guests:</label>
-                                  <select>
-                                      <option value="">2 Adults</option>
-                                      <option value="">3 Adults</option>
-                                  </select>
-                              </div>
-                              <div class="select-option">
-                                  <label for="room">Room:</label>
-                                  <select id="room">
-                                      <option value="">1 Room</option>
-                                      <option value="">2 Room</option>
-                                  </select>
-                              </div>
-                              <button type="submit">Check Availability</button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="hero-slider owl-carousel">
-              <div class="hs-item set-bg"><%= image_tag("hero/hero-1.jpg", :alt => "") %> </div>
-              <div class="hs-item set-bg"> <%= image_tag("hero/hero-2.jpg", :alt => "") %></div>
-              <div class="hs-item set-bg"> <%= image_tag("hero/hero-3.jpg", :alt => "") %></div>
-          </div>
-      </section>
-    <!-- Hero Section End -->
- 
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-  
 <script src="<%= asset_path('jquery-3.3.1.min.js') %>"></script>
 <script src="<%= asset_path('bootstrap.min.js') %>"></script>
 <script src="<%= asset_path('jquery.magnific-popup.min.js') %>"></script>
@@ -152,6 +106,6 @@
 <script src="<%= asset_path('jquery.slicknav.js') %>"></script>
 <script src="<%= asset_path('owl.carousel.min.js') %>"></script>
 <script src="<%= asset_path('main.js') %>"></script>
-</body>
     <%= yield %>
+    </body>
 </html>

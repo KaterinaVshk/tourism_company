@@ -1,0 +1,51 @@
+<%= render partial: "layouts/notification"%>
+<!-- Hero Section Begin -->
+      <section class="hero-section">
+        <div class="container">
+              <div class="row">
+                  <div class="col-lg-9">
+                  <div class="hero-text">
+                  <h1>Хватит мечтать - пора отдыхать!</h1>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-4 ">
+                      <div class="booking-form">
+                          <h2 align="center">Подбор тура</h2>
+                          <%= bootstrap_form_tag url: tour_with_kind_path(@kind), method: :get  do |f| %> 
+                                <%= f.select :sort, %w(Новые Дешевые Дорогие Популярные),  label: "Сначала"  %>
+                                <%= f.text_field :country, label: 'Страна' %>
+                                <%= f.text_field :city, label: 'Город' %>
+                                <%= f.label 'Количество звёзд отеля' %>
+                                <br>
+                                <% 5.times do |i| %>
+                                    <%= f.check_box "stars_arr[#{i+1}]", label: "#{i+1}", inline: true%>
+                                <% end %>
+                                <%= f.label '' %>
+                                <%= f.select :food, ['Не имеет значения','Всё включено',
+                                                     'Завтрак, обед и ужин', 'Завтрак и ужин',
+                                                     'Только завтрак', 'Без питания'], label: 'Питание'%>
+                                <%= f.select :transport, %w(Любой Автобус Самолёт Поезд), label: 'Транспорт'%>
+                                <%= f.label 'Количество ночей', class: 'text-center' %>
+                                <%= f.number_field :min_nights, label: 'От:', min: 0, value: 0 %>
+                                <%= f.number_field :max_nights, label: 'До:', min: 0, value: 0 %>
+                                <%= f.label 'Цена в USD($) :', class: 'text-center' %>
+                                <%= f.number_field :min_price, label: 'От:', min: 0, value: 0 %>
+                                <%= f.number_field :max_price, label: 'До:', min: 0 , value: 0 %>
+                                <%= f.submit 'Подобрать', class: 'btn btn-theme col-md-12' %>
+                            <% end %>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+            </div>  
+              <div class="hero-slider owl-carousel">
+                          <div class="hs-item set-bg"><%= image_tag("hero/hero-1.jpg", :alt => "") %> </div>
+                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-2.jpg", :alt => "") %></div>
+                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-3.jpg", :alt => "") %></div>
+                </div>
+      </section>
+      </div>
+      <script src="<%= asset_path('main.js') %>"></script>
+      <script src="<%= asset_path('bootstrap.min.js') %>"></script>
+
+    <!-- Hero Section End -->

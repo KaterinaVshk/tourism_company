@@ -49,12 +49,14 @@ h1 {
 }
 h2 {
 	font-size: 36px;
+
 }
 h3 {
 	font-size: 30px;
 }
 h4 {
 	font-size: 24px;
+	padding-bottom: 10px;
 }
 h5 {
 	font-size: 18px;
@@ -85,6 +87,14 @@ ul, ol {
 	padding: 0;
 	margin: 0;
 }
+.alert {
+    width:1000px; 
+    height: 50px;   
+  }
+  .bs-example{
+	padding-top: 10px;
+}
+
 /*---------------------
   Helper CSS
 -----------------------*/
@@ -274,6 +284,7 @@ ul, ol {
 .top-nav {
 	border-bottom: 1px solid #e5e5e5;
 	background: #4d4848;
+	height: 60px;
 }
 .top-nav .tn-left li {
 	list-style: none;
@@ -291,6 +302,16 @@ ul, ol {
 	top: 60px;
 	opacity: 1;
 	visibility: visible;
+}
+.top-nav .tn-left a {
+	list-style: none;
+	display: inline-block;
+	font-size: 16px;
+	color: #dfa974;
+	font-weight: 200;
+	padding: 5px 0 5px;
+	margin-right: 20px;
+	position: relative;
 }
 .top-nav .tn-left li {
 	list-style: none;
@@ -318,10 +339,10 @@ ul, ol {
 .top-nav .tn-left  li a:after {
 	position: absolute;
 	left: 0;
-	top: 52px;
+	top: 42px;
 	width: 100%;
 	height: 2px;
-	background: #080807;
+	background:  #dfa974;;
 	content: "";
 	opacity: 0;
 	-webkit-transition: all 0.3s;
@@ -407,22 +428,28 @@ ul, ol {
 	background: rgba(36, 11, 12, 0.05);
 }
 .menu-item .logo {
-	padding: 25px 0;
+	padding: 15px 0;
+}
+.menu-item .container {
+	max-width: 1400px;
 }
 .menu-item .logo a {
 	display: inline-block;
 }
 .menu-item .nav-menu {
-	text-align: right;
+	text-align: left;
+	height: 50px;
 }
 .menu-item .nav-menu .mainmenu {
 	display: inline-block;
+	height: 50px;
 }
 .menu-item .nav-menu .mainmenu li {
 	list-style: none;
 	display: inline-block;
 	position: relative;
 	z-index: 1;
+	
 }
 .menu-item .nav-menu .mainmenu li.active a:after {
 	opacity: 1;
@@ -438,10 +465,10 @@ ul, ol {
 .menu-item .nav-menu .mainmenu li a {
 	font-size: 16px;
 	color: #19191a;
-	margin-right: 42px;
+	margin-right: 20px;
 	font-weight: 500;
 	display: inline-block;
-	padding: 27px 0;
+	padding: 17px 0;
 	position: relative;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -450,7 +477,7 @@ ul, ol {
 .menu-item .nav-menu .mainmenu li a:after {
 	position: absolute;
 	left: 0;
-	top: 52px;
+	top: 45px;
 	width: 100%;
 	height: 2px;
 	background: #dfa974;
@@ -517,15 +544,17 @@ ul, ol {
 
 .hero-section {
 	position: relative;
-	padding-top: 60px;
+	padding-top: 25px;
 	padding-bottom: 100px;
 }
 .hero-section .container {
 	position: relative;
 	z-index: 5;
+	max-width: 1700px;
 }
 .hero-text {
-	padding-top: 145px;
+	padding-top: 90px;
+	
 }
 .hero-text h1 {
 	font-size: 60px;
@@ -541,10 +570,11 @@ ul, ol {
 }
 .booking-form {
 	background: #ffffff;
-	padding: 44px 40px 50px 40px;
-	border-radius: 4px;
+	padding: 20px 40px 50px 40px;
+	border: 7px solid #dfa974;
+	border-radius: 10px;
 }
-.booking-form h3 {
+.booking-form h2 {
 	color: #19191a;
 	margin-bottom: 36px;
 }
@@ -629,10 +659,10 @@ ul, ol {
 }
 .hero-slider {
 	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
+	width: 70%;
+	height: 25%;
+	left: 1%;
+	top: 2.1%;
 }
 .hero-slider.owl-carousel .owl-dots {
 	position: absolute;
@@ -1012,7 +1042,8 @@ ul, ol {
 .breadcrumb-text h2 {
 	font-size: 44px;
 	color: #19191a;
-	margin-bottom: 12px;
+	margin-bottom: 20px;
+	margin-top: 15px;
 }
 .breadcrumb-text .bt-option a {
 	display: inline-block;
@@ -1179,6 +1210,11 @@ ul, ol {
 .rooms-section {
 	padding-top: 0;
 	padding-bottom: 80px;
+}
+.rooms-section .container {
+	position: relative;
+	z-index: 5;
+	max-width: 1700px;
 }
 .room-item {
 	margin-bottom: 30px;
@@ -1880,7 +1916,7 @@ ul, ol {
 -----------------------*/
 
 .contact-section {
-	padding-top: 80px;
+	padding-top: 40px;
 	padding-bottom: 80px;
 	
 }

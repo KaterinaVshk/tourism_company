@@ -1,10 +1,10 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
-
   # GET /tours
   # GET /tours.json
   def index
-    @tours = Tour.all
+    @tours = ToursService.new.get_tours(filter_params)
+    @kind = filter_params[:kind]
   end
 
   # GET /tours/1
@@ -25,7 +25,6 @@ class ToursController < ApplicationController
   # POST /tours.json
   def create
     @tour = Tour.new(tour_params)
-
     respond_to do |format|
       if @tour.save
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
@@ -69,6 +68,14 @@ class ToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tour_params
-      params.fetch(:tour, {})
+      params.fetch(:tour).permit(:name, :country, :city, :kind, :food, :transport, :description, :hotel, :stars,:nights, :price, :image)
+    end
+
+    def filter_params
+      properties = params.permit(:kind, :sort,:country, :city, :food, :transport,:stars_arr,
+                  :min_nights, :max_nights, :min_price, :max_price,
+                  :commit)
+      properties[:stars_arr] = params.require(:stars_arr).permit(%w(1 2 3 4 5)) if params[:stars_arr]
+      properties
     end
 end
