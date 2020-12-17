@@ -35,6 +35,8 @@ gem "font-awesome-rails"
 gem 'non-stupid-digest-assets'
 gem 'devise'
 gem 'pry'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
 gem 'devise_token_auth'
 gem 'devise-i18n'
 gem 'rails-i18n'

@@ -1,5 +1,7 @@
 class ToursController < ApplicationController
+  before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
+ 
   # GET /tours
   # GET /tours.json
   def index

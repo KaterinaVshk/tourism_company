@@ -21,7 +21,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-     super
+
+    super
   end
 
   # DELETE /resource
@@ -40,7 +41,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    protected
 
-
+   def user_update_params
+    params.fetch(:user).permit(:name, :surname, :phone, :image)
+  end
   def user_params
     params.fetch(:user).permit(:email, :password,  :password_confirmation, :name, :surname, :phone)
   end

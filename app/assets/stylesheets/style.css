@@ -428,7 +428,7 @@ ul, ol {
 	background: rgba(36, 11, 12, 0.05);
 }
 .menu-item .logo {
-	padding: 15px 0;
+	padding: 5px 0;
 }
 .menu-item .container {
 	max-width: 1400px;
@@ -1286,13 +1286,13 @@ ul, ol {
 
 .room-details-section {
 	padding-top: 0;
-	padding-bottom: 80px;
+
 }
 .room-details-item {
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 }
 .room-details-item img {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 .room-details-item .rd-text .rd-title {
 	overflow: hidden;

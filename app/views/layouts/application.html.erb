@@ -58,6 +58,9 @@
                           <% if user_signed_in? %>
                           <li><a> <%= link_to('ПРОФИЛЬ',profile_path) %> </a></li>
                           <li><a> <%= link_to('ВЫХОД',destroy_user_session_path, :method => :delete)%> </a></li>
+                          <% if  current_user.admin_role? %>
+                          <li class="active"><a ><%= link_to 'ПАНЕЛЬ УПРАВЛЕНИЯ',  rails_admin_path  %></li></a>
+                          <%end%>
                           <% else %>
                           <li> <a> <%= link_to('РЕГИСТРАЦИЯ',new_user_registration_path)%> </a></li>
                           <li> <a> <%= link_to('ВХОД' ,new_user_session_path)  %> </a></li>
@@ -69,34 +72,37 @@
           </div>
       </div>
       <div class="menu-item">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-2">
-                      <div class="logo">
-                          <a href="./index.html">
-                          <%= image_tag("logo.png", :alt => "") %>
-                          </a>
-                      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-2">
+                  <div class="logo">
+                      <a href="./index.html">
+                      <%= image_tag("logo-1.1.png", :alt => "") %>
+                      </a>
                   </div>
-                  <div class="col-lg-10">
-                      <div class="nav-menu">
-                          <nav class="mainmenu">
-                              <ul>
-                                <li><a><%= link_to('ВСЕ ТУРЫ', tour_with_kind_path('все')) %> </a></li>
-                                <li><a><%= link_to('ГОРНОЛЫЖНЫЙ ОТДЫХ', tour_with_kind_path('горнолыжный'))%></a></li>
-                                <li><a><%= link_to('ПЛЯЖНЫЙ ОТДЫХ', tour_with_kind_path('пляжный'))%></a></li>
-                                <li><a><%= link_to('ГОРОДСКИЕ ТУРЫ', tour_with_kind_path('городской'))%></a></li>
-                                <li><a><%= link_to('ЭКСКУРСИИ', tour_with_kind_path('экскурсии'))%></a></li>
-                                <li><a><%= link_to 'Добавление тура', new_tour_path %></li></a>
-                              </ul>
-                          </nav>
-                          
-                      </div>
+              </div>
+              <div class="col-lg-10">
+                  <div class="nav-menu">
+                      <nav class="mainmenu">
+                          <ul>
+                            <li><a><%= link_to('ВСЕ ТУРЫ', tour_with_kind_path('все')) %> </a></li>
+                            <li><a><%= link_to('ГОРНОЛЫЖНЫЙ ОТДЫХ', tour_with_kind_path('горнолыжный'))%></a></li>
+                            <li><a><%= link_to('ПЛЯЖНЫЙ ОТДЫХ', tour_with_kind_path('пляжный'))%></a></li>
+                            <li><a><%= link_to('ГОРОДСКИЕ ТУРЫ', tour_with_kind_path('городской'))%></a></li>
+                            <li><a><%= link_to('ЭКСКУРСИИ', tour_with_kind_path('экскурсии'))%></a></li>
+                            <% if user_signed_in? %>
+                            <% if current_user.manager_role? || current_user.admin_role? %>
+                            <li><a><%= link_to 'Добавление тура', new_tour_path %></li></a>
+                            <%end%>
+                            <%end%>
+                          </ul>
+                      </nav>
+                      
                   </div>
               </div>
           </div>
       </div>
-      <!-- Header End -->
+      </div>
 
 <script src="<%= asset_path('jquery-3.3.1.min.js') %>"></script>
 <script src="<%= asset_path('bootstrap.min.js') %>"></script>
