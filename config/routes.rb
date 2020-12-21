@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/edit'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+  resources :users
   resources :tours
   #devise_for :users, controllers: {sessions: 'users/registrations' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

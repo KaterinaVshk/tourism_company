@@ -1,62 +1,59 @@
 <div class="breadcrumb-text">
 <h2> Профиль </h2>
 </div>
-<div class="row">
-        <div class="col-lg-8">
-            <section class="rooms-section spad">
-                <div class="container">
-                    <div class="row">
-                    </div>
-                </div>    
-            </section>
-        </div>
-        
-        <div class="col-xl-3 col-lg-6 ">
-              <div class="booking-form"> 
-                <section class="room-details-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="room-details-item">
-                            <% if current_user.image.attached? %>
-                            <%= link_to image_tag(@user.image, class: 'col-md-10 col-md-offset-1' ) %>
-                            <% else %>
-                            <%= link_to image_tag('no_avatar.png', class: 'col-md-10 col-md-offset-1' )%>
-                        <% end %>
-                                <div class="rd-text">
-                                    <h2><%=@user.email%></h2>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="r-o">Имя: </td>
-                                                <td><%=@user.name%></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="r-o">Фамилия: </td>
-                                                <td><%=@user.surname%></td>
-                                            </tr>
-                                            <tr>
-                                            <td class="r-o">Телефон: </td>
-                                            <td><%=@user.phone%></td>
-                                        </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                    
-                                </div>
 
-                            </div>
-                       
-                            </section>
-                            <%= link_to 'Изменить данные', edit_user_registration_path ,  class: 'btn btn-theme col-md-12'%>  
-                          
-                        
+<section class="hero-section">
+<div class="container">
+      <div class="row">
+          <div class="col-md-8">
+
+          <div class="breadcrumb-text mb-5">
+            <h3> Информация о ваших турах </h3>
+        </div>
+        <div class="breadcrumb-text">
+            <h5> У вас на данный момент нет туров </h5>
+        </div>
+
+
+          </div>
+          <div class="col-md-3">
+              <div class="booking-form">
+              <% if current_user.image.attached? %>
+              <%= link_to image_tag(@user.image, class: 'col-md-10 col-md-offset-1') %>
+              <% else %>
+              <%= link_to image_tag('no_avatar.png', class: 'col-md-7 col-md-offset-1', height: "130" )%>
+          <% end %>
+                  <div class="rd-text">
+                      <h2><%=@user.email%></h2>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td class="r-o">Имя: </td>
+                                  <td><%=@user.name%></td>
+                              </tr>
+                              <tr>
+                                  <td class="r-o pr-3">Фамилия: </td>
+                                  <td><%=@user.surname%></td>
+                              </tr>
+                              <tr>
+                              <td class="r-o">Телефон: </td>
+                              <td><%=@user.phone%></td>
+                          </tr>
+                              
+                          </tbody>
+                      </table>
+                      
+                  </div>
+                  <%= link_to 'Изменить данные', edit_user_registration_path ,  class: 'btn btn-theme col-md-12'%>  
               </div>
-        </div>
-    </div>
-</div>  
+            
+              </div>  
+          
+          </div>
+      </div>
+    </div>  
 
-</div>
-
-</div>
 </section>
+</div>
+<script src="<%= asset_path('main.js') %>"></script>
+<script src="<%= asset_path('bootstrap.min.js') %>"></script>

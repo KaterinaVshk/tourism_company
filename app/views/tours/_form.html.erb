@@ -14,7 +14,7 @@
     <%= form.select :kind, %w(горнолыжный пляжный экскурсии городской), label: 'Тип тура:' %>
     <%= form.text_field :hotel, label: 'Отель:'  %>
     <%= form.select :stars, 1..5 , label: 'Количество звезд отеля:' %>
-    <%= form.number_field :nights , min: 0, value: 0, label: 'Количество ночей:'%>
+    <%= form.number_field :nights , min: 0, label: 'Количество ночей:'%>
     <%= form.select :food, ['Всё включено',
                          'Завтрак, обед и ужин', 'Завтрак и ужин',
                          'Только завтрак', 'Без питания'], label: 'Питание:' %>

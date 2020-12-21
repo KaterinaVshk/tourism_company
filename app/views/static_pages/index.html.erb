@@ -6,9 +6,47 @@
         <div class="container">
               <div class="row">
                   <div class="col-lg-9">
-                  <div class="hero-text">
-                  <h1 align="center">Хватит мечтать - пора отдыхать!</h1>
+                      <div class="hero-text">
+                        <h1 align="center">Хватит мечтать - пора отдыхать!</h1>
+                      </div>
+                      <div class="hero-text">    
+                      <h2 align="center">Лучшие туры по нашемому мнению!</h2>            
+                      <div class="container">
+                    <div class="row">
+                    <% @tours.shuffle[0..5].each do |tour| %>
+                        <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                
+                                <% if tour.image.attached? %>
+                                <%= link_to image_tag(tour.image, height: 250) ,tour %>
+                                <% else %>
+                                <%= link_to image_tag('time-to-travel-3.jpg', height: 250), tour %>
+                                <% end %>
+                               
+                                    <div class="ri-text">
+                                        <h4><%= tour.name %></h4>
+                                        <h3><%= tour.price%>$</h3>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="r-o">Страна:</td>
+                                                    <td><%= tour.country %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-o">Кол-во ночей:</td>
+                                                    <td><%= tour.nights %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <%= link_to "Подробнее", tour_path(tour) , class: "primary-btn"%>
+                                    </div>
+                                </div>
+                        </div>
+                    <%end%>
                     </div>
+                </div>    
+                    </div>
+                        
                   </div>
                   <div class="col-xl-3 col-lg-1">
                       <div class="booking-form">
@@ -41,11 +79,14 @@
               </div>
             </div>  
               <div class="hero-slider owl-carousel">
-                          <div class="hs-item set-bg"><%= image_tag("hero/hero-1.jpg", :alt => "") %> </div>
-                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-2.jpg", :alt => "") %></div>
-                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-3.jpg", :alt => "") %></div>
+                          <div class="hs-item set-bg"><%= image_tag("hero/hero-1-2.jpg", :alt => "") %> </div>
+                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-2-1.jpg", :alt => "") %></div>
+                          <div class="hs-item set-bg"> <%= image_tag("hero/hero-3-2.jpg", :alt => "") %></div>
                 </div>
+            
+  
       </section>
+
       </div>
       <script src="<%= asset_path('main.js') %>"></script>
       <script src="<%= asset_path('bootstrap.min.js') %>"></script>

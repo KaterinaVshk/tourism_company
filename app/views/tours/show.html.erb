@@ -80,6 +80,15 @@
                     </table>
                     <p class="f-para">Описание: <%=@tour.description%></p>
                 </div>
+                <tr>
+
+                <% if  current_user %>
+                  <%= button_to 'забронировать', edit_tour_path(@tour), class:'btn btn-red col-md-6 mb-3'%>
+                  <% if  current_user.admin_role?|| current_user.manager_role?%>
+                  <%= button_to 'редактировать', edit_tour_path(@tour), class:'btn btn-red col-md-12'%>
+                <%end%>      
+                <%end%> 
+                <%= button_to 'вернуться к поиску', tour_with_kind_path(@tour.kind), method: :get, class:'btn btn-red col-md-12 mb-3'%> 
+                </tr>
             </div>
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Back', tours_path %>
+            </section>

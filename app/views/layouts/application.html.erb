@@ -76,7 +76,6 @@
           <div class="row">
               <div class="col-lg-2">
                   <div class="logo">
-                      <a href="./index.html">
                       <%= image_tag("logo-1.1.png", :alt => "") %>
                       </a>
                   </div>
@@ -114,4 +113,52 @@
 <script src="<%= asset_path('main.js') %>"></script>
     <%= yield %>
     </body>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-text">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="ft-about">
+                            <div class="logo">
+                                <a href="#">
+                                <%= image_tag("logo-1.1.png", :alt => "") %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="ft-contact">
+                            <h6>Информация</h6>
+                            <ul>
+            <ul class="tag_nav">
+              <li>Наша группа Вконтакте</li>
+              <li>Наша группа в Одноклассниках</li>
+              <li>Наша страница в Twitter</li>
+              <li>Наша страница в Facebook</li>
+            </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="ft-newslatter">
+                            <h6>Контакты</h6>
+                            <p>Полное наименование: ООО "Trevel Agency"</p>
+                            <p>Режим работы турагенства: понедельник-пятница с 8:30 до 23:00, суббота и воскресение - с 10.00 до 20.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="co-text"><p>
+  Вашкевич &copy;2020  | Разработано Вашкевич Е.О.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>
