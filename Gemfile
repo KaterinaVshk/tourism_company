@@ -29,17 +29,18 @@ gem 'rubocop-rspec', require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 5.0.0.alpha3'
-gem 'jquery-rails'
-gem "bootstrap_form", "~> 4.0"
-gem "font-awesome-rails"
-gem 'non-stupid-digest-assets'
+gem 'bootstrap_form', '~> 4.0'
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
 gem 'devise'
-gem 'pry'
-gem 'rails_admin', '~> 2.0'
-gem 'cancancan'
-gem 'devise_token_auth'
 gem 'devise-i18n'
+gem 'devise_token_auth'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'non-stupid-digest-assets'
+gem 'pry'
+gem 'rails_admin', '~> 2.1', '>= 2.1.1'
 gem 'rails-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

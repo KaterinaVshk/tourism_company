@@ -8,7 +8,6 @@ AllCops:
   Exclude:
     - 'config/**/*'
     - 'spec/factories/**/*'
-    - 'app/models/*'
     - 'spec/**/*'
     - 'lib/tasks/**/*'
     - 'vendor/**/*'

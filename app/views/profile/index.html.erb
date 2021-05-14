@@ -1,27 +1,111 @@
+<%= render partial: "layouts/notification"%>
 <div class="breadcrumb-text">
 <h2> Профиль </h2>
 </div>
 
-<section class="hero-section">
 <div class="container">
       <div class="row">
           <div class="col-md-8">
+          <% if (@confirmed_orders.blank? && @unconfirmed_orders.blank?)%>
+            <div class="breadcrumb-text mb-5">
+              <h3> У вас на данный момент нет туров </h3>
+            </div>
+          <% end %>
+          <% unless @unconfirmed_orders.blank? %>  
+            <div class="breadcrumb-text mb-2">
+              <h4> Необработанные заявки </h4>
+            </div>
+              <section class="rooms-section spad">
+                    <div class="container">
+                        <div class="row">
+                      
+                        <% @unconfirmed_orders.each_with_index do |tour,index| %>
+                            <div class="col-md-6 ">
+                                    <div class="room-item">
+                                    
+                                    <% if tour.image.attached? %>
+                                    <%= link_to image_tag(tour.image, height: 200) ,tour %>
+                                    <% else %>
+                                    <%= link_to image_tag('time-to-travel-3.jpg', height: 200), tour %>
+                                    <% end %>
+                                  
+                                        <div class="ri-text">
+                                            <h4><%= tour.name %></h4>
+                                            <% oder = tour.oders[index]%>
+                                            <h3><%= oder.persons * tour.price %>$</h3>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="r-o">Кол-во людей:</td>
+                                                        <td><%=  tour.oders[index].persons %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="r-o">Дата:</td>
+                                                        <td><%= tour.oders[index].date %></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <%= link_to "Подробнее", tour_path(tour) , class: "primary-btn"%>
+                                        </div>
+                                    </div>
+                            </div>
+                        <%end%>
+                        </div>
+                    </div>    
+              </section>
+            <%end%>
 
-          <div class="breadcrumb-text mb-5">
-            <h3> Информация о ваших турах </h3>
-        </div>
-        <div class="breadcrumb-text">
-            <h5> У вас на данный момент нет туров </h5>
-        </div>
-
+            <% unless @confirmed_orders.blank? %>  
+            <div class="breadcrumb-text mb-2">
+              <h4> Подтвержденные заявки </h4>
+            </div>
+              <section class="rooms-section spad">
+                    <div class="container">
+                        <div class="row">
+                      
+                        <% @confirmed_orders.each do |tour| %>
+                            <div class="col-md-6">
+                                    <div class="room-item">
+                                    
+                                    <% if tour.image.attached? %>
+                                    <%= link_to image_tag(tour.image, height: 250) ,tour %>
+                                    <% else %>
+                                    <%= link_to image_tag('time-to-travel-3.jpg', height: 250), tour %>
+                                    <% end %>
+                                  
+                                        <div class="ri-text">
+                                            <h4><%= tour.name %></h4>
+                                            <h3><%= tour.price%>$</h3>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="r-o">Страна:</td>
+                                                        <td><%= tour.country %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="r-o">Кол-во ночей:</td>
+                                                        <td><%= tour.nights %></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <%= link_to "Подробнее", tour_path(tour) , class: "primary-btn"%>
+                                        </div>
+                                    </div>
+                            </div>
+                        <%end%>
+                        </div>
+                    </div>    
+              </section>
+            <%end%>
 
           </div>
-          <div class="col-md-3">
+
+          <div class="col-md-4">
               <div class="booking-form">
               <% if current_user.image.attached? %>
               <%= link_to image_tag(@user.image, class: 'col-md-10 col-md-offset-1') %>
               <% else %>
-              <%= link_to image_tag('no_avatar.png', class: 'col-md-7 col-md-offset-1', height: "130" )%>
+              <%= link_to image_tag('no_avatar.png', class: 'col-md-7 col-md-offset-1', height: "125" )%>
           <% end %>
                   <div class="rd-text">
                       <h2><%=@user.email%></h2>
@@ -51,9 +135,8 @@
           
           </div>
       </div>
-    </div>  
+    </div>   
 
-</section>
 </div>
 <script src="<%= asset_path('main.js') %>"></script>
 <script src="<%= asset_path('bootstrap.min.js') %>"></script>

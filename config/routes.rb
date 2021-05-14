@@ -14,4 +14,6 @@ Rails.application.routes.draw do
    get 'tours/index' , kind: 'все'
   get 'tours_with_kind/:kind', to:'tours#index', as: 'tour_with_kind'
   get 'profile', to: 'profile#index', as: 'profile'
+  get 'oders/new', to: 'oders#new'
+  post 'oders', to: "oders#create"
 end

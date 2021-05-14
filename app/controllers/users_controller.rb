@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   def edit
-      render('edit')
+    render('edit')
   end
 
   def update
