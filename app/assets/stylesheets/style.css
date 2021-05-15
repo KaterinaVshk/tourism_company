@@ -2396,6 +2396,12 @@ ul, ol {
   z-index: 5;
   max-width: 1000px;
 }
+.column{
+  width: 80px;
+}
+.column2{
+  width: 600px;
+}
 /* Small Mobile: 320px */
 
 @media only screen and (max-width: 479px) {

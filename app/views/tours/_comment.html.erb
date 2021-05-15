@@ -1,0 +1,18 @@
+
+<div class="row mt-2">
+<div class="column">
+<%=  image_tag("avatar.png",class: "img-fluid rounded-circle")%>
+</div>
+  <div class="column2 ml-3">
+    <div class="row">
+      <div class="col-md-4">
+        <b><h5><%=comment.user.name  %><h5></b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mt-2">
+        <p><%= comment.content %></p>
+      </div> 
+    </div>
+  </div>        
+</div>

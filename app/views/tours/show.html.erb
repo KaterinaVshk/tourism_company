@@ -100,6 +100,46 @@
         </div>
       </div>
     </div>
+    <div class = "row">
+      <div class="col-md-10  my-3">
+        <div class="row">
+          <div class="column mr-2">
+            <%= link_to image_tag("avatar.png",class: "img-fluid rounded-circle", size: "90"), 
+            controller: "users", action: "show", id: current_user.id %>
+          </div>
+          <div class="column2 mt-2">
+            <%= form_for :comment, url: "/tours/#{@tour.id}/comments/", method: :post do |f| %>
+              <%  invalid = alert if alert %>
+              <%= f.hidden_field :tour_id,  value: @tour.id %>
+              <%= f.text_area :content, class: "form-control #{'is-invalid' if invalid}" , placeholder: "Ваше мнение, #{current_user.id}?" %><br/>            
+              <% if alert == 'Комментарий не может быть пустым'%>
+                <div class="invalid-feedback d-block">
+                  <p><big> <%= alert %></big></p> 
+                </div>
+              <%end%>
+              <div class="col-md-4">
+                <%= f.submit "Высказаться" , :class => "auth-button auth-button_primary auth-button_middle auth-form__button auth-form__button_width_full" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+          <div class="col-md-3 my-2">
+            <div class="discussion">
+              <h3>Отзывы</h3>
+            </div>
+          </div>
+        </div>
+    <div class = "row">
+            <div class="col-md-8 offset-md-1 my-3">
+              <% @tour.comments.each do |comment| %>
+                <%= render partial: "comment", object: comment %> 
+             <% end %>
+            </div>
+        </div>
+  </div>
   </div>
 </section>
 

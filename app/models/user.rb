@@ -9,4 +9,5 @@ class User < ApplicationRecord
          :validatable
   has_one_attached :image
   has_many :oders
+  has_many :comments
 end

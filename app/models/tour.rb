@@ -7,4 +7,5 @@ class Tour < ApplicationRecord
             :price,
             presence: true
   has_many :oders
+  has_many :comments
 end

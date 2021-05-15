@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users
-  resources :tours
+  resources :tours do
+    resources :comments
+  end
   #devise_for :users, controllers: {sessions: 'users/registrations' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to:'static_pages#index',  kind: 'все'
